@@ -49,7 +49,7 @@ const getWinner = (cChoise, pChoice) => {
 
 startGameBtn.addEventListener("click", () => {
     if (endGame) {
-        //for lounch the game for time to time 
+        //for lounch the game for time to time
         return;
     }
     endGame = true;
@@ -62,3 +62,34 @@ startGameBtn.addEventListener("click", () => {
     console.log(theWinner);
     endGame = false;
 });
+
+//not releated in game
+
+const sumUp = (sumResult, ...numbers) => {
+    const validateNumber = (number) => {
+        return !isNaN(number) ? number : 0;
+    };
+
+    let sum = 0;
+    for (const num of numbers) {
+        sum += validateNumber(num);
+    }
+    sumResult(sum);
+};
+
+const substract = function (substractReslut, ...numbers) {
+    let sub = 0;
+    for (const num of numbers) {
+        sub -= num;
+    }
+    substractReslut(sub);
+};
+
+const showResult = (result) => {
+    alert("result after concat numbers is :" + result);
+    console.log(result);
+};
+
+sumUp(showResult, 5, 54, 5, -5, 12);
+substract(showResult, 1, 9, 2, 5);
+sumUp(showResult, 5645,354645, 54, 5, -5, 12);
