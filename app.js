@@ -4,7 +4,7 @@ const PAPER = "PAPER";
 const SCISSOR = "SCISSOR";
 let endGame = false;
 
-const getPlayerChoice = function () {
+const getPlayerChoice = () => {
     const selection = prompt(
         `${ROCK} ,${PAPER} or ${SCISSOR}`,
         ""
@@ -18,7 +18,7 @@ const getPlayerChoice = function () {
     return selection;
 };
 
-const getCamputerChoice = function () {
+const getCamputerChoice = () => {
     const cpuSelections = [ROCK, PAPER, SCISSOR];
     const cpuselect =
         cpuSelections[Math.floor(Math.random() * cpuSelections.length)];
@@ -26,7 +26,7 @@ const getCamputerChoice = function () {
     return cpuselect;
 };
 
-const getWinner = function (cChoise, pChoice) {
+const getWinner = (cChoise, pChoice) => {
     let winner;
     if (
         (cChoise === PAPER && pChoice === ROCK) ||
@@ -47,11 +47,11 @@ const getWinner = function (cChoise, pChoice) {
     }
 };
 
-startGameBtn.addEventListener("click", function () {
-    // if (endGame) {
-    //     //for once lounch the game
-    //     return;
-    // }
+startGameBtn.addEventListener("click", () => {
+    if (endGame) {
+        //for lounch the game for time to time 
+        return;
+    }
     endGame = true;
     console.log("game started !");
     // console.log(getPlayerChoice());
@@ -60,4 +60,5 @@ startGameBtn.addEventListener("click", function () {
     const camputerSelection = getCamputerChoice();
     const theWinner = getWinner(camputerSelection, playerSelection);
     console.log(theWinner);
+    endGame = false;
 });
