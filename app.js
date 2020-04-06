@@ -35,7 +35,7 @@ const getWinner = function (cChoise, pChoice) {
     ) {
         console.log("the winner is camputer");
         winner = "camputer";
-        document.getElementById("winner").innerHTML = 'winner is camputer';
+        document.getElementById("winner").innerHTML = "winner is camputer";
     } else if (cChoise === pChoice) {
         console.log("it is a draw");
         winner = "draw";
@@ -43,7 +43,7 @@ const getWinner = function (cChoise, pChoice) {
     } else {
         console.log("the winner is player");
         winner = "player";
-        document.getElementById("winner").innerHTML = 'winner is player';
+        document.getElementById("winner").innerHTML = "winner is player";
     }
 };
 
@@ -59,5 +59,5 @@ startGameBtn.addEventListener("click", function () {
     const playerSelection = getPlayerChoice(); //we can store function in const and use it
     const camputerSelection = getCamputerChoice();
     const theWinner = getWinner(camputerSelection, playerSelection);
-    // console.log(theWinner);
+    console.log(theWinner);
 });
