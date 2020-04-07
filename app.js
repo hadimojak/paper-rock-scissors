@@ -74,22 +74,22 @@ const sumUp = (sumResult, ...numbers) => {
     for (const num of numbers) {
         sum += validateNumber(num);
     }
-    sumResult(sum);
+    sumResult(sum, "result of sum");
 };
 
-const substract = function (substractReslut, ...numbers) {
-    let sub = 0;
-    for (const num of numbers) {
-        sub -= num;
-    }
-    substractReslut(sub);
-};
+// const substract = function (substractReslut, ...numbers) {
+//     let sub = 0;
+//     for (const num of numbers) {
+//         sub -= num;
+//     }
+//     substractReslut(sub, "result of subtract");
+// };
 
-const showResult = (result) => {
-    alert("result after concat numbers is :" + result);
+const showResult = (result, messageText) => {
+    alert(messageText + " " + result);
     console.log(result);
 };
 
 sumUp(showResult, 5, 54, 5, -5, 12);
 substract(showResult, 1, 9, 2, 5);
-sumUp(showResult, 5645,354645, 54, 5, -5, 12);
+sumUp(showResult, 5645, 354645, 54, 5, -5, 12);
