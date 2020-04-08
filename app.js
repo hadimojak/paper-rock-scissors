@@ -64,17 +64,23 @@ startGameBtn.addEventListener("click", () => {
 });
 
 //not releated in game
-
-const sumUp = (sumResult, ...numbers) => {
+const SUM = "SUM";
+const SUB = "SUBTRACT";
+const combine = (combineResult, oprator, ...numbers) => {
     const validateNumber = (number) => {
         return !isNaN(number) ? number : 0;
     };
 
     let sum = 0;
     for (const num of numbers) {
-        sum += validateNumber(num);
+        if (oprator === SUM) {
+            sum += validateNumber(num);
+        } else {
+            sum -= validateNumber(num);
+        }
     }
-    sumResult(sum, "result of sum");
+
+    combineResult(sum);
 };
 
 // const substract = function (substractReslut, ...numbers) {
@@ -85,11 +91,36 @@ const sumUp = (sumResult, ...numbers) => {
 //     substractReslut(sub, "result of subtract");
 // };
 
-const showResult = (result, messageText) => {
+const showResult = (messageText, result) => {
     alert(messageText + " " + result);
     console.log(result);
 };
 
-sumUp(showResult, 5, 54, 5, -5, 12);
-substract(showResult, 1, 9, 2, 5);
-sumUp(showResult, 5645, 354645, 54, 5, -5, 12);
+combine(
+    showResult.bind(this, "result of adding numbers :"),
+    SUM,
+    5,
+    54,
+    5,
+    -5,
+    12
+);
+combine(
+    showResult.bind(this, "result of subtarcting numbers :"),
+    SUB,
+    1,
+    9,
+    2,
+    "asdasd",
+    5
+);
+combine(
+    showResult.bind(this, "result of adding numbers :"),
+    SUM,
+    5645,
+    354645,
+    54,
+    5,
+    -5,
+    12
+);
